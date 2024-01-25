@@ -19,4 +19,4 @@ class TransactionModel:
         for i in f.pages:
             #transaction=i.extract_table()
             TranListOfPages.append(i.extract_table())
-
+    TransList = list(chain.from_iterable(TranListOfPages))

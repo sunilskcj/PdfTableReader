@@ -20,3 +20,20 @@ class TransactionModel:
             #transaction=i.extract_table()
             TranListOfPages.append(i.extract_table())
     TransList = list(chain.from_iterable(TranListOfPages))
+    l = 0
+    length = len(TransList)
+    newTransList = []
+    for t in TransList:
+        l = l + 1
+        if t[0] is not None:
+            day = re.search('\d{2}/\d{2}/\d{4}', t[0])
+            if day is not None:
+                newTransList.append(t)
+    for n in newTransList:
+        if 'Cr' in n[2]:
+            n[2] = n[2].replace('Cr', '')
+            n[3] = '0'
+        else:
+            n[3] = '1'
+    # print(newTransList)
+        

@@ -47,3 +47,15 @@ class TransactionModel:
         for t in transaction:
             response = requests.post(api_url, json=t)
             print(response.json())
+# DRIVER_NAME='SQL SERVER'
+    # SERVER_NAME='SKCJPC'
+    # DATABASE_NAME='FinanceMgmtSystm'
+    # #cnxn = pyodbc.connect(r'Driver=SQL Server;Server=.\SKCJPC;Database=FinanceMgmtSystm;Trusted_Connection=yes;')
+    # connectionString=f"""DRIVER={{{DRIVER_NAME}}};SERVER={{{SERVER_NAME}}};DATABASE={{{DATABASE_NAME}}};Trusted_Connection=yes;"""
+    # conn = odbc.connect(connectionString)
+    # print(conn)
+    # cursor = conn.cursor()
+    # cursor.execute("select * from Expenditure")
+    # row = cursor.fetchone()
+    # if row:
+    #     print(row)

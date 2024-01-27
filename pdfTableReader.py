@@ -36,4 +36,14 @@ class TransactionModel:
         else:
             n[3] = '1'
     # print(newTransList)
-        
+        # json_string = json.dumps(newTransList, default=custom_serializer, indent=2)
+        json_dict = {"transaction": [
+            {"expenseDate": datetime.strptime(value[0], '%d/%m/%Y').strftime("%Y-%m-%d"), "expenses": value[1],
+             "amount": value[2].replace(',', ''), "expenseType": value[3]} for value in newTransList]}
+        # json_string = json.dumps(json_dict)
+        transaction = json_dict["transaction"]
+        print(transaction)
+        api_url = "http://localhost:5244/api/Expenditure"
+        for t in transaction:
+            response = requests.post(api_url, json=t)
+            print(response.json())
